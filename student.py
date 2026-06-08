@@ -1,4 +1,5 @@
-import file_manager
+from file_manager import file_handle
+import pandas as pd
 
 class students:
     def __init__(self,StudentID,Name,Age,Gender,Course,Email,Phone_Number,Marks):
@@ -27,26 +28,28 @@ Marks {Marks}
 
 class StudentManager:
     def __init__(self):
-       file=file_manager()
+        self.file=None
+        return
 
-    def addStudent():
-        print("add successfully")
+    def addStudent(self):
+        file=file_handle()
+        file.head()
 
-    def viewStudent():
-        pass
-
-    def seachStudent():
-        pass
-
-    def updateStudent():
-        pass
-    def deleteStudent():
-        pass
-    def sortStudent():
-        pass
-    def topperStudent():
+    def viewStudent(self):
         pass
 
-    def studentStatistics():
+    def seachStudent(self):
+        pass
+
+    def updateStudent(self):
+        pass
+    def deleteStudent(self):
+        pass
+    def sortStudent(self):
+        pass
+    def topperStudent(self):
+        pass
+
+    def studentStatistics(self):
         pass
     

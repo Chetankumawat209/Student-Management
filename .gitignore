@@ -1,2 +1,3 @@
-.venv
-.requirement.txt
+venv
+requirement.txt
+__pycache__
