@@ -25,6 +25,8 @@ def main ():
             case "1":
                 # obj()
                 obj.addStudent()
+                
+                obj.save()
             case "2":
                 obj.viewStudent()
             case "3":

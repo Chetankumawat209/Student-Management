@@ -16,10 +16,13 @@ def file_handle():
         path=r"C:\Users\cheta\OneDrive\Desktop\students.csv"
         columns=['student ID','Name','Age','Gender','Course','Email',"Phone Number","Marks"]
         df=pd.DataFrame(columns=columns)
-        df.to_csv(path,index=False)
-        print("create Successfully")
+        # df.to_csv(path,index=False)
+        print("Create Successfully")
         return df
         
     else:
         print("Enter worng mode")
         main()
+
+def dataInsert_intofile(a,b,c,d,e,f,g,h):
+    df=pd.read_csv()

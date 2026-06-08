@@ -28,13 +28,34 @@ Marks {Marks}
 
 class StudentManager:
     def __init__(self):
-        self.file=None
+        self.df=None
         return
 
     def addStudent(self):
-        file=file_handle()
-        file.head()
+        self.df=file_handle()
+        ID=int(input("Enter Student ID "))
+        Name=input("Enter Student name ")
+        Age=int(input("Enter Student age "))
+        Gender=input("Enter Student gender ")
+        course=input("Enter Student course ")
+        Email=input("Enter Email")
+        Phone=int(input("Enter student phone number"))
+        Marks=int(input("Enter student marks"))
 
+        new_df=pd.DataFrame({
+            "student ID":[ID],
+            "Name":[Name],
+            "Age":[Age],
+            "Gender":[Gender],
+            "Course":[course],
+            "Email":[Email],
+            "Phone Number":[Phone],
+            "Marks":[Marks]
+        })
+        self.df=pd.concat((self.df,new_df),axis=0)
+        self.df.head()
+        # self.df.to_csv(r"C:\Users\cheta\OneDrive\Desktop\students.csv",index=False)
+        
     def viewStudent(self):
         pass
 
@@ -53,3 +74,12 @@ class StudentManager:
     def studentStatistics(self):
         pass
     
+    def save(self):
+        print("1 Save data")
+        print("2 Not save data")
+        choice=input("Enter your choice ")
+        if choice =="1":
+            self.df.to_csv(r"C:\Users\cheta\OneDrive\Desktop\students.csv",index=False)
+            print("Data Save successfully")
+        else:
+            print("Data not save")
