@@ -1,4 +1,0 @@
-pandas 
-os
-sys
-numpy
