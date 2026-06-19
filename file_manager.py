@@ -1,28 +1,36 @@
 import pandas as pd
-from app import main
+import os
+import streamlit as st
 
 def file_handle():
-    print("1 Already have")
-    print("2 Not created have")
-    mode=input("Enter your choice ")
+    lst=["Open file","Create file"]
+    mode=st.selectbox("choice file options",lst,index=None,placeholder="Choice file")
+    if mode is None:
+        st.stop()
+    mode=lst.index(mode)+1
+   
 
-    if mode=="1":
-        path=input("Enter file path ")
+    if mode==1:
+        path=st.file_uploader("select file")
+        if path is None :
+            st.stop()
+     
         df=pd.read_csv(path)
-        print("open successfully")
-        return df
+        st.write("open successfully")
+        if path:
+            return df , path
+        else:
+            st.write(f"The file at {path} was not found. Try again")
+            exit()
 
-    elif mode =="2":
-        path=r"C:\Users\cheta\OneDrive\Desktop\students.csv"
+    elif mode ==2:
+        path="C:/Users/cheta/OneDrive/Desktop/students.csv"
         columns=['student ID','Name','Age','Gender','Course','Email',"Phone Number","Marks"]
         df=pd.DataFrame(columns=columns)
-        # df.to_csv(path,index=False)
-        print("Create Successfully")
-        return df
+        st.write("Create Successfully")
+        return df ,path
         
     else:
-        print("Enter worng mode")
-        main()
+        st.write("Enter wrong mode")
+        return None, None
 
-def dataInsert_intofile(a,b,c,d,e,f,g,h):
-    df=pd.read_csv()

@@ -1,51 +1,43 @@
 import student
-print(2)
-print("=====Wellcome to Student management system ========")
-# print("chetan")
-def main ():
-    print(3)
-    while True:
-       
-        print("""
-1. Add Student
-2. View Students
-3. Search Student
-4. Update Students
-5. Delete Student
-6. Sort Students
-7. Topper Student
-8. Statistics Students
-9. Exit Student
-                            
-""")
-        obj=student.StudentManager()
-        choice=input("Enter your choice")
+import streamlit as st
 
-        match choice:
-            case "1":
-                # obj()
-                obj.addStudent()
-                
-                obj.save()
-            case "2":
-                obj.viewStudent()
-            case "3":
-                obj.seachStudent()
-            case "4":
-                obj.updateStudent()
-            case "5":
-                obj.deleteStudent()
-            case "6":
-                obj.sortStudent()
-            case "7":
-                obj.topperStudent()
-            case "8":
-                obj.studentStatistics()
-            case "9":
-                break
-            case _:
-                print("Wrong choice")
-                break
+
+def get_manager():
+    if "student_manager" not in st.session_state:
+        st.session_state.student_manager = student.StudentManager()
+    return st.session_state.student_manager
+
+
+def main():
+    st.title("=====Welcome to Student management system ========")
+
+    lst = ["Add Student", "View Students", "Search Student", "Update Students",
+           "Delete Student", "Topper Student", "Save data and exit"]
+    choice = st.selectbox("Choice what you want", lst, index=None, placeholder="Please select an option")
+    if choice:
+        choice = lst.index(choice) + 1
+
+    obj = get_manager()
+
+    match choice:
+        case 1:
+            obj.addStudent()
+        case 2:
+            obj.viewStudent()
+        case 3:
+            obj.searchStudent()
+        case 4:
+            obj.updateStudent()
+        case 5:
+            obj.deleteStudent()
+        case 6:
+            obj.topperStudent()
+        case 7:
+            obj.save()
+            st.success("Save completed. You can choose another option or close the app.")
+        case _:
+            st.info("Please select an option")
+            
 
 
 
@@ -53,5 +45,5 @@ def main ():
 
 
 if __name__=="__main__":
-    print(1)
     main()
+# st.title("hello")
