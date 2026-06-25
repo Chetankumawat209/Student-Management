@@ -1,49 +1,42 @@
-import student
+
 import streamlit as st
 
+from file_manager import empty_df, sidebar_data_loader, save_section
+from student import add_student_form, editable_table, search_section, topper_section
 
-def get_manager():
-    if "student_manager" not in st.session_state:
-        st.session_state.student_manager = student.StudentManager()
-    return st.session_state.student_manager
+st.set_page_config(page_title="Student Management System", page_icon="🎓", layout="wide")
+
+
+def init_state():
+    """Set up session_state the first time the app runs."""
+    if "df" not in st.session_state:
+        st.session_state.df = empty_df()
+    if "source_filename" not in st.session_state:
+        st.session_state.source_filename = None
+    if "loaded_file_id" not in st.session_state:
+        st.session_state.loaded_file_id = None
 
 
 def main():
-    st.title("=====Welcome to Student management system ========")
+    st.title("Student Management System")
 
-    lst = ["Add Student", "View Students", "Search Student", "Update Students",
-           "Delete Student", "Topper Student", "Save data and exit"]
-    choice = st.selectbox("Choice what you want", lst, index=None, placeholder="Please select an option")
-    if choice:
-        choice = lst.index(choice) + 1
+    init_state()
+    state = st.session_state  # short alias passed into every function
 
-    obj = get_manager()
+    sidebar_data_loader(state)
 
-    match choice:
-        case 1:
-            obj.addStudent()
-        case 2:
-            obj.viewStudent()
-        case 3:
-            obj.searchStudent()
-        case 4:
-            obj.updateStudent()
-        case 5:
-            obj.deleteStudent()
-        case 6:
-            obj.topperStudent()
-        case 7:
-            obj.save()
-            st.success("Save completed. You can choose another option or close the app.")
-        case _:
-            st.info("Please select an option")
-            
+    add_student_form(state)
+    editable_table(state)
+
+    c1, c2 = st.columns(2)
+    with c1:
+        search_section(state)
+    with c2:
+        topper_section(state)
+
+    st.divider()
+    save_section(state)
 
 
-
-
-
-
-if __name__=="__main__":
+if __name__ == "__main__":
     main()
-# st.title("hello")
