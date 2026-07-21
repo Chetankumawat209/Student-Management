@@ -17,6 +17,8 @@ This project provides a simple, no-database way to manage student records. Users
 - Upload an existing CSV to continue editing it
 - Save or download the dataset as a CSV file
 
+## Live link https://ckstudent.streamlit.app/
+
 ## 🛠️ Tech Stack
 
 - **Python**
