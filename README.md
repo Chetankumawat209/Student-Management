@@ -1,4 +1,4 @@
-Student Management System
+**Student Management System**
 
 A simple web app to manage student records — add, edit, search, and save data as CSV. Built with Streamlit and Pandas.
 
@@ -6,13 +6,13 @@ What it does
 
 
 ➕ Add new students (ID, Name, Age, Gender, Course, Email, Phone, Marks)
- Edit or delete records directly in a table
- Search by ID, Name, or Course
- Show the topper (highest marks)
- Upload/download data as CSV
+ Edit or delete records directly in a table .
+ Search by ID, Name, or Course .
+ Show the topper (highest marks) .
+ Upload/download data as CSV .
 
 
-Requirements
+**Requirements**
 
 Python 3.8+
 Streamlit
