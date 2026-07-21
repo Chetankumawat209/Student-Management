@@ -60,7 +60,8 @@ The app opens automatically at `http://localhost:8501`.
 ## 🙋‍♂️ Author
 
 **Chetan Kumawat**
-GitHub: [@Chetankumawat209](https://github.com/Chetankumawat209) · LinkedIn: [chetankumawat](https://linkedin.com/in/chetankumawat)
+### GitHub: [@Chetankumawat209](https://github.com/Chetankumawat209) 
+### LinkedIn: [chetankumawat](https://www.linkedin.com/in/chetankumawat/)
 
 ---
 If you found this project useful, consider giving it a star!
